@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>오늘의 운세</title>
+        <link type="text/css" rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>♧오늘의 행운 아이템♧</h1>
+        <div>
+            <img src="./images/a.jpg">
+        </div>
+        <form id="fortune-form">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" required>
+            <label for="birth">생년월일 (예: 2005-01-01)</label>
+            <input type="date" id="birth" name="birth" required>
+            <button type="submit">~확인~</button>
+        </form>
+        <div id="result"></div>
+        <script>
+            const form=document.getElementById("fortune-form");
+            const resultDiv=document.getElementById("result");
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const name=document.getElementById("name").value;
+                const birth=document.getElementById("birth").value;
+
+                resultDiv.textContent="수정구슬을 보는 중입니다...";
+
+                try {
+                    const response=await fetch("버셀 링크...", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type":"application/json",
+                        },
+                        body: JSON.stringify({ name, birth }),
+                    });
+
+                    const data=await response.json();
+
+                    if (response.ok) {
+                        reslutDiv.textContent=data.answer;
+                    } else {
+                        resultDiv.textContent=`오류: $data.error}`;
+                    }
+                } catch (err) {
+                    resultDiv.textContent="서버와 통신 중 오류가 발생했습니다.";
+                    console.error(err);
+                }
+            });
+        </script>
+    </body>
+</html>

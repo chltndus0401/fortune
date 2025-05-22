@@ -1,0 +1,155 @@
+/* style.css */
+
+body {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+    background: linear-gradient(to bottom right, #e8f5e9, #f1f8e9);
+    color: #2e7d32;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 별 반짝임 효과 */
+body::before, body::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(#ffffff 1px, transparent 1px),
+        radial-gradient(#ffffff 1px, transparent 1px),
+        radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 100px 100px, 120px 120px, 140px 140px;
+    background-position: 0 0, 50px 50px, 25px 75px;
+    animation: twinkle 4s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translateY(0px);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-2px);
+    }
+}
+
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.4; }
+}
+
+h1 {
+    margin-top: 50px;
+    font-size: 2.2rem;
+    color: #1b5e20;
+    text-align: center;
+    z-index: 1;
+}
+
+div img {
+    margin-top: 20px;
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: #ffffffdd;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+label {
+    font-weight: 600;
+    color: #33691e;
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 12px;
+    border: 1px solid #c8e6c9;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border 0.2s;
+    background-color: #f4fff7;
+}
+
+input:focus {
+    outline: none;
+    border-color: #81c784;
+}
+
+button {
+    background-color: #66bb6a;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #43a047;
+    transform: scale(1.02);
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #2e7d32;
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    background-color: #f9fff7;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    z-index: 1;
+}
+
+/* 반응형 지원 */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+        margin-top: 30px;
+    }
+
+    div img {
+        width: 110px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    #result {
+        font-size: 1rem;
+        padding: 15px;
+    }
+}
