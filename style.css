@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
-    background: linear-gradient(to bottom right, #6c976f, #f1f8e9);
-    color: #ffec1b;
+    background: linear-gradient(135deg, #f9f0e6 0%, #f3d9c6 100%);
+    color: #6b4c3b;
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,7 +14,7 @@ body {
     overflow: hidden;
 }
 
-/* 별 반짝임 효과 */
+/* 은은한 꽃가루 느낌의 반짝임 효과 */
 body::before, body::after {
     content: "";
     position: absolute;
@@ -22,162 +22,136 @@ body::before, body::after {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(#ffffff 2px, transparent 1px),
-        radial-gradient(#ffffff 1px, transparent 0.5px),
-        radial-gradient(#ffffff 3px, transparent 1px);
-    background-size: 100px 100px, 120px 120px, 140px 140px;
-    background-position: 0 0, 50px 50px, 25px 75px;
-    animation: twinkle 4s infinite ease-in-out;
+        radial-gradient(rgba(255, 228, 196, 0.5) 2px, transparent 1px),
+        radial-gradient(rgba(255, 192, 203, 0.4) 1.5px, transparent 0.7px),
+        radial-gradient(rgba(255, 235, 205, 0.3) 3px, transparent 1.2px);
+    background-size: 90px 90px, 110px 110px, 130px 130px;
+    background-position: 0 0, 45px 55px, 25px 75px;
+    animation: twinkle 5s infinite ease-in-out;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.4;
-} 
-
-
-@keyframes twinkle {
-  0%, 100% {
     opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1);
-  }
 }
-
 
 @keyframes twinkle {
     0%, 100% {
-        opacity: 0.4;
-        transform: translateY(0px);
+        opacity: 0.3;
+        transform: scale(1);
     }
     50% {
-        opacity: 0.8;
-        transform: translateY(-2px);
+        opacity: 0.7;
+        transform: scale(1.05);
     }
-}
-
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 0.4; }
 }
 
 h1 {
     margin-top: 60px;
-    font-size: 2.2rem;
-    color: #fff47d;
+    font-size: 2.4rem;
+    color: #a26951;
     text-align: center;
+    font-weight: 700;
+    letter-spacing: 1.2px;
     z-index: 1;
+    text-shadow: 1px 1px 4px rgba(255, 223, 196, 0.6);
 }
 
 div img {
-    margin-top: 20px;
-    width: 160px;
+    margin-top: 25px;
+    width: 180px;
     height: auto;
     object-fit: contain;
     border-radius: 50%;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px rgba(164, 124, 86, 0.4);
     z-index: 1;
 }
 
 form {
-    margin-top: 30px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
     width: 90%;
-    max-width: 400px;
-    padding: 30px;
-    background-color: #ffffffdd;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 420px;
+    padding: 35px 30px;
+    background-color: #fff5ebdd;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(203, 167, 133, 0.25);
     z-index: 1;
 }
 
 label {
-    font-weight: 600;
-    color: #33691e;
+    font-weight: 700;
+    color: #7f5a3d;
+    font-size: 1.1rem;
 }
 
-input[type="text"],
-input[type="date"] {
-    padding: 12px;
-    border: 1px solid #c8e6c9;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: border 0.2s;
-    background-color: #f4fff7;
-}
 input[type="number"],
 select {
-  padding: 12px;
-  border: 1px solid #c8e6c9;
-  border-radius: 10px;
-  font-size: 1rem;
-  background-color: #f4fff7;
-  transition: border 0.2s;
+    padding: 14px 15px;
+    border: 1.5px solid #d2b48c;
+    border-radius: 14px;
+    font-size: 1rem;
+    background-color: #fff7f0;
+    transition: border-color 0.3s ease;
 }
 
-select:focus,
-input[type="number"]:focus {
-  outline: none;
-  border-color: #81c784;
-}
-
-input:focus {
+input[type="number"]:focus,
+select:focus {
     outline: none;
-    border-color: #81c784;
+    border-color: #c48b56;
+    box-shadow: 0 0 6px #d6a86faa;
 }
 
 button {
-    background-color: #66bb6a;
+    background-color: #c48b56;
     color: white;
     border: none;
-    padding: 14px;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: bold;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.4s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(196, 139, 86, 0.5);
 }
 
 button:hover {
-    background-color: #43a047;
-    transform: scale(1.02);
+    background-color: #a66f3a;
+    transform: scale(1.05);
 }
 
 #result {
-    margin-top: 30px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #2e7d32;
+    margin-top: 35px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #7f5a3d;
     text-align: center;
-    padding: 20px;
-    max-width: 500px;
-    background-color: #f9fff7;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 25px 20px;
+    max-width: 520px;
+    background-color: #fff0e6;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(199, 161, 123, 0.2);
     z-index: 1;
+    white-space: pre-line; /* 줄바꿈 유지 */
 }
 
-/* 반응형 지원 */
+/* 반응형 */
 @media screen and (max-width: 480px) {
     h1 {
-        font-size: 1.6rem;
-        margin-top: 30px;
+        font-size: 1.8rem;
+        margin-top: 40px;
     }
 
     div img {
-        width: 110px;
+        width: 130px;
     }
 
     form {
-        padding: 20px;
+        padding: 25px 20px;
     }
 
     #result {
-        font-size: 1rem;
-        padding: 15px;
+        font-size: 1.1rem;
+        padding: 18px;
     }
 }
