@@ -11,7 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
 }
 
 /* 은은한 꽃가루 느낌의 반짝임 효과 */
