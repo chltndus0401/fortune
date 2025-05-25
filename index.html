@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>고양이가 골라준 향수</title>
+    <title>🐱 고양이가 골라준 오늘의 향수</title>
     <link type="text/css" rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -12,8 +12,8 @@
       <img src="./images/a.png" alt="행운 고양이" />
     </div>
     <form id="perfume-form">
-      <label for="month">태어난 달</label>
-      <input type="number" id="month" name="month" min="1" max="12" required />
+      <label for="birth">생년월일 (예: 2000-01-01)</label>
+      <input type="date" id="birth" name="birth" required />
 
       <label for="hemisphere">사는 지역 반구</label>
       <select id="hemisphere" name="hemisphere" required>
@@ -25,7 +25,7 @@
       <button type="submit">추천받기</button>
     </form>
 
-    <div id="result"></div>
+    <div id="result" style="white-space: pre-wrap; margin-top: 1em;"></div>
 
     <script>
       const form = document.getElementById("perfume-form");
@@ -34,18 +34,23 @@
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const month = document.getElementById("month").value;
+        const birth = document.getElementById("birth").value;
         const hemisphere = document.getElementById("hemisphere").value;
 
-        resultDiv.textContent = "고양이가 향수를 골라보는 중이에요...🐾";
+        if (!birth || !hemisphere) {
+          resultDiv.textContent = "생년월일과 반구를 꼭 선택해주세요!";
+          return;
+        }
+
+        resultDiv.textContent = "🐱 고양이가 향수를 골라보는 중이에요... 🐾";
 
         try {
-          const response = await fetch("https://assign2-zeta.vercel.app/api/duksungAI", {
+          const response = await fetch("/api/duksungAI", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ month, hemisphere }),
+            body: JSON.stringify({ birth, hemisphere }),
           });
 
           const data = await response.json();
