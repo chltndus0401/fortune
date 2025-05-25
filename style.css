@@ -109,6 +109,21 @@ input[type="date"] {
     transition: border 0.2s;
     background-color: #f4fff7;
 }
+input[type="number"],
+select {
+  padding: 12px;
+  border: 1px solid #c8e6c9;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #f4fff7;
+  transition: border 0.2s;
+}
+
+select:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #81c784;
+}
 
 input:focus {
     outline: none;
